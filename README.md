@@ -3,8 +3,18 @@
 C++ backend for whisper.cpp with real-time transcription.
 
 ## Features
-- Audio file upload
-- Real-time Whisper-based transcription with streaming support
+
+⚡ Real-time Transcription: Low-latency, streaming speech-to-text.
+
+🖥️ Runs Locally: Fully offline — no internet or cloud services required.
+
+🎯 C++ Backend: High-performance backend built with C++ for stability and speed.
+
+🧠 Powered by whisper.cpp: Efficient inference using OpenAI's Whisper model in C++.
+
+🧩 Easy Integration: Exposed as a service for seamless integration with other apps or pipelines.
+
+🧱 Optimized for Consumer GPUs: Leverages local GPU for fast and efficient transcription, no specialized hardware needed.
 
 ## Requirements
 - FFmpeg
@@ -116,3 +126,8 @@ curl -X POST "http://127.0.0.1:8178/inference" \
      -F "response_format=json" \
      -F "temperature=0.2"
 ```
+
+## Included Projects
+
+This repo includes the full source of [whisper.cpp](https://github.com/ggerganov/whisper.cpp) under the `whisper.cpp/` directory, for ease of build and deployment.  
+License and attribution remain under their original terms.
