@@ -127,7 +127,16 @@ curl -X POST "http://127.0.0.1:8178/inference" \
      -F "temperature=0.2"
 ```
 
-## Included Projects
+## About
 
-This repo includes the full source of [whisper.cpp](https://github.com/ggerganov/whisper.cpp) under the `whisper.cpp/` directory, for ease of build and deployment.  
-License and attribution remain under their original terms.
+This project provides a local backend service for real-time speech transcription using [whisper.cpp](https://github.com/ggerganov/whisper.cpp), optimized for consumer-grade GPUs and fully offline usage.
+
+### Included Projects
+
+This repository includes the full source of [whisper.cpp](https://github.com/ggerganov/whisper.cpp) under the `whisper.cpp/` directory for ease of build and deployment.  
+All code from `whisper.cpp` is used under its original license and remains attributed to its original authors.
+
+This project is also a modified and extended version of [Zackriya-Solutions/meeting-minutes](https://github.com/Zackriya-Solutions/meeting-minutes).  
+We have adapted and restructured parts of that project to better support real-time local transcription via a C++ backend and consumer-grade GPUs.
+
+We gratefully acknowledge the work of both upstream projects.
