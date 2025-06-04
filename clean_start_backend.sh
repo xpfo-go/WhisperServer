@@ -82,23 +82,6 @@ sleep 1  # Give processes time to terminate
 # Check and kill if backend app in port 5167 is running
 log_section "Backend App Check"
 
-log_info "Checking for processes on port 5167..."
-PORT=5167
-if lsof -i :$PORT | grep -q LISTEN; then
-    log_warning "Backend app is running on port $PORT"
-    read -p "$(echo -e "${YELLOW}🤔 Kill it? (y/N)${NC} ")" -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        handle_error "User chose not to terminate existing backend app"
-    fi
-
-    log_info "Terminating backend app..."
-    if ! kill -9 $(lsof -t -i :$PORT) 2>/dev/null; then
-        handle_error "Failed to terminate backend app"
-    fi
-    log_success "Backend app terminated"
-    sleep 1  # Give processes time to terminate
-fi
 
 # Check for existing model
 log_section "Model Check"
@@ -166,7 +149,7 @@ echo -e "${GREEN}🔍 Whisper Server (PID: $WHISPER_PID)${NC}"
 echo -e "${BLUE}Press Ctrl+C to stop all services${NC}"
 
 # Show whisper server port and python backend port
-echo -e "${BLUE}Whisper Server Port: $PORT${NC}"
+echo -e "${BLUE}Whisper Server Port: 8178${NC}"
 
 # Keep the script running and wait for both processes
 wait $WHISPER_PID || handle_error "One of the services crashed"
